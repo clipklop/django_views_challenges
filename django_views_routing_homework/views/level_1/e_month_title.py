@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound
+from django.http import JsonResponse
 
 
 """
@@ -14,9 +15,29 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 
 def get_month_title_by_number(month_number: int):
-    pass  # код писать тут
+    month_mapper = {
+        1: 'January',
+        2: 'February',
+        3: 'March',
+        4: 'April',
+        5: 'May',
+        6: 'June',
+        7: 'July',
+        8: 'August',
+        9: 'September',
+        10: 'October',
+        11: 'November',
+        12: 'December'
+    }
+
+    if month_number in month_mapper:
+        return JsonResponse(data=month_mapper[month_number], safe=False)
+    else:
+        return
 
 
 def get_month_title_view(request, month_number: int):
     # код писать тут
+    if get_month_title_by_number(month_number):
+        return get_month_title_by_number(month_number)
     return HttpResponseNotFound('Месяца с таким номером не существует')
