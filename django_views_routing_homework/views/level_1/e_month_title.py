@@ -12,10 +12,7 @@ from django.http import JsonResponse
     3. Добавьте путь в файле urls.py, чтобы при открытии http://127.0.0.1:8000/month-title/тут номер месяца/ 
        вызывалась вьюха get_month_title_view. Например http://127.0.0.1:8000/month-title/3/ 
 """
-
-
-def get_month_title_by_number(month_number: int):
-    month_mapper = {
+MONTH_MAPPER = {
         1: 'January',
         2: 'February',
         3: 'March',
@@ -30,14 +27,13 @@ def get_month_title_by_number(month_number: int):
         12: 'December'
     }
 
-    if month_number in month_mapper:
-        return JsonResponse(data=month_mapper[month_number], safe=False)
-    else:
-        return
+def get_month_title_by_number(month_number: int):
+    return MONTH_MAPPER.get(month_number)
 
 
 def get_month_title_view(request, month_number: int):
     # код писать тут
     if get_month_title_by_number(month_number):
-        return get_month_title_by_number(month_number)
+        return JsonResponse(data=MONTH_MAPPER[month_number], safe=False)
+    
     return HttpResponseNotFound('Месяца с таким номером не существует')
