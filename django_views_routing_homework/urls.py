@@ -9,6 +9,10 @@ from django_views_routing_homework.views.level_1.e_month_title import get_month_
 from django_views_routing_homework.views.level_2.a_user_info_by_username import get_user_info_by_username_view
 from django_views_routing_homework.views.level_2.c_product_type import get_products_view
 from django_views_routing_homework.views.level_2.d_authorization import authorization_view, process_authorization_view
+from django_views_routing_homework.views.level_3.b_validate_user_data import validate_user_data_view
+from django_views_routing_homework.views.level_3.d_file_generation import generate_file_with_text_view
+
+from django_views_routing_homework.views.level_3.a_user_ip import show_user_ip_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,6 +22,10 @@ urlpatterns = [
     path('products/', get_products_view),
     path('authorization/', authorization_view),
     path('process-authorization/', process_authorization_view),
+    path('me/ip/', show_user_ip_view),
+    path('user/validate/', validate_user_data_view),
+    path('user/github/<slug:github_username>/full-name/', validate_user_data_view),
+    path('text/generate/', generate_file_with_text_view),
     # добавлять пути тут
     path('bye/', bye_user_view),
     path('user-info/<int:user_id>/', get_user_info_view),

@@ -1,8 +1,8 @@
+
 .DS_Store
 
 .pytest_cache
 
-### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -25,7 +25,9 @@ parts/
 sdist/
 var/
 wheels/
+
 share/python-wheels/
+
 *.egg-info/
 .installed.cfg
 *.egg
@@ -44,13 +46,16 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+
 .nox/
+
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
+
 *.py,cover
 .hypothesis/
 .pytest_cache/
@@ -66,6 +71,7 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
+
 # Flask stuff:
 instance/
 .webassets-cache
@@ -78,10 +84,12 @@ docs/_build/
 
 # PyBuilder
 .pybuilder/
+
 target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
 
 # IPython
 profile_default/
@@ -121,6 +129,13 @@ __pypackages__/
 celerybeat-schedule
 celerybeat.pid
 
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+
 # SageMath parsed files
 *.sage.py
 
@@ -145,6 +160,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
 .dmypy.json
 dmypy.json
 
@@ -173,4 +189,12 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
+
+
+# VS code
+.vscode
+
+.idea
+
+.envrc
 
