@@ -10,10 +10,10 @@ from django_views_routing_homework.views.level_2.a_user_info_by_username import 
 from django_views_routing_homework.views.level_2.b_greet_user_language import greet_user_in_different_languages_view
 from django_views_routing_homework.views.level_2.c_product_type import get_products_view
 from django_views_routing_homework.views.level_2.d_authorization import authorization_view, process_authorization_view
-from django_views_routing_homework.views.level_3.b_validate_user_data import validate_user_data_view
-from django_views_routing_homework.views.level_3.d_file_generation import generate_file_with_text_view
-
 from django_views_routing_homework.views.level_3.a_user_ip import show_user_ip_view
+from django_views_routing_homework.views.level_3.b_validate_user_data import validate_user_data_view
+from django_views_routing_homework.views.level_3.c_github_full_name import fetch_name_from_github_view
+from django_views_routing_homework.views.level_3.d_file_generation import generate_file_with_text_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +25,7 @@ urlpatterns = [
     path('process-authorization/', process_authorization_view),
     path('me/ip/', show_user_ip_view),
     path('user/validate/', validate_user_data_view),
-    path('user/github/<slug:github_username>/full-name/', validate_user_data_view),
+    path('user/github/<slug:github_username>/full-name/', fetch_name_from_github_view),
     path('text/generate/', generate_file_with_text_view),
     # добавлять пути тут
     path('greet/<str:name>/<str:language>/', greet_user_in_different_languages_view),
